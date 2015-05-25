@@ -1,0 +1,74 @@
+#include <sys/types.h> //基本系统数据类型
+/home/zj/Dthreads/src/include/heaplayers/util/cpuinfo.h;/home/zj/Dthreads/src/include/heaplayers/util/cpuinfo.h;/home/zj/Dthreads/src/include/heaplayers/util/cpuinfo.h;/home/zj/Dthreads/src/include/xpersist.h;/home/zj/Dthreads/src/include/xplock.h;/home/zj/Dthreads/src/include/xmemory.h;/home/zj/Dthreads/src/include/real.h;/home/zj/Dthreads/src/include/determ.h;/home/zj/Dthreads/src/include/xthread.h;/home/zj/Dthreads/src/include/list.h;/home/zj/Dthreads/src/include/xpageentry.h;/home/zj/Dthreads/src/include/xdefines.h;/home/zj/Dthreads/src/include/xbitmap.h;/home/zj/Dthreads/src/include/heaplayers/traceheap.h;/home/zj/Dthreads/src/include/heaplayers/mmapheap.h;/home/zj/Dthreads/src/include/heaplayers/mmapwrapper.h;/home/zj/Dthreads/src/include/heaplayers/util/timer.h;/home/zj/Dthreads/src/source/real.cpp;/home/zj/Dthreads/src/source/prof.cpp;
+#include <signal.h> //signal.h是C标准函数库中的信号处理部分， 定义了程序执行时如何处理不同的信号。
+/home/zj/Dthreads/src/include/xmemory.h;/home/zj/Dthreads/src/include/determ.h;
+#include <assert.h>
+/home/zj/Dthreads/src/include/xpersist.h;/home/zj/Dthreads/src/include/debug.h;/home/zj/Dthreads/src/include/heaplayers/freelistheap.h;/home/zj/Dthreads/src/include/heaplayers/hybridheap.h;/home/zj/Dthreads/src/include/heaplayers/logheap.h;/home/zj/Dthreads/src/include/heaplayers/sizethreadheap.h;/home/zj/Dthreads/src/include/heaplayers/coalesceableheap.h;/home/zj/Dthreads/src/include/heaplayers/nestedheap.h;/home/zj/Dthreads/src/include/heaplayers/dlheap.h;/home/zj/Dthreads/src/include/heaplayers/phothreadheap.h;/home/zj/Dthreads/src/include/heaplayers/addheap.h;/home/zj/Dthreads/src/include/heaplayers/bins64k.h;/home/zj/Dthreads/src/include/heaplayers/chunkheap.h;/home/zj/Dthreads/src/include/heaplayers/debugheap.h;/home/zj/Dthreads/src/include/heaplayers/obstackreap.h;/home/zj/Dthreads/src/include/heaplayers/coalesceheap.h;/home/zj/Dthreads/src/include/heaplayers/threadspecificheap.h;/home/zj/Dthreads/src/include/heaplayers/padheap.h;/home/zj/Dthreads/src/include/heaplayers/fifodlfreelist.h;/home/zj/Dthreads/src/include/heaplayers/segheap.h;/home/zj/Dthreads/src/include/heaplayers/freesllist.h;/home/zj/Dthreads/src/include/heaplayers/sbrk.c;/home/zj/Dthreads/src/include/heaplayers/fifofreelist.h;/home/zj/Dthreads/src/include/heaplayers/obstackheap.h;/home/zj/Dthreads/src/include/heaplayers/obstack.h;/home/zj/Dthreads/src/include/heaplayers/sizeownerheap.h;/home/zj/Dthreads/src/include/heaplayers/threadheap.h;/home/zj/Dthreads/src/include/heaplayers/nullheap.h;/home/zj/Dthreads/src/include/heaplayers/sizeheap.h;/home/zj/Dthreads/src/include/heaplayers/zoneheap.h;/home/zj/Dthreads/src/include/heaplayers/bins16k.h;/home/zj/Dthreads/src/include/heaplayers/experimental/looseslotheap.h;/home/zj/Dthreads/src/include/heaplayers/experimental/sizethreadheap.h;/home/zj/Dthreads/src/include/heaplayers/experimental/lazyslotheap.h;/home/zj/Dthreads/src/include/heaplayers/experimental/alignedchunk.h;/home/zj/Dthreads/src/include/heaplayers/experimental/seg.h;/home/zj/Dthreads/src/include/heaplayers/experimental/topslotheap.h;/home/zj/Dthreads/src/include/heaplayers/experimental/batchheap.h;/home/zj/Dthreads/src/include/heaplayers/experimental/strictslotheap.h;/home/zj/Dthreads/src/include/heaplayers/experimental/testcoalesceableheap.h;/home/zj/Dthreads/src/include/heaplayers/experimental/treap.h;/home/zj/Dthreads/src/include/heaplayers/experimental/chunk.h;/home/zj/Dthreads/src/include/heaplayers/experimental/multimalloc.h;/home/zj/Dthreads/src/include/heaplayers/experimental/slotheap.h;/home/zj/Dthreads/src/include/heaplayers/experimental/emptychunkheap.h;/home/zj/Dthreads/src/include/heaplayers/experimental/bigchunk.h;/home/zj/Dthreads/src/include/heaplayers/experimental/fifofreelist.h;/home/zj/Dthreads/src/include/heaplayers/util/bitstring.h;/home/zj/Dthreads/src/include/heaplayers/util/myhashmap.h;/home/zj/Dthreads/src/include/heaplayers/util/sllist.h;/home/zj/Dthreads/src/include/heaplayers/util/bitindex.h;/home/zj/Dthreads/src/include/heaplayers/util/dynarray.h;/home/zj/Dthreads/src/include/heaplayers/util/dllist.h;/home/zj/Dthreads/src/source/libdthread.cpp;
+#include <unistd.h> //定义的接口通常都是大量针对系统调用的封装（英语：wrapper functions），如 fork、pipe 以及各种 I/O 原语（read、write、close 等等）。
+/home/zj/Dthreads/src/include/heaplayers/util/cpuinfo.h;/home/zj/Dthreads/src/include/heaplayers/util/cpuinfo.h;/home/zj/Dthreads/src/include/xpersist.h;/home/zj/Dthreads/src/include/xplock.h;/home/zj/Dthreads/src/include/xmemory.h;/home/zj/Dthreads/src/include/determ.h;/home/zj/Dthreads/src/include/list.h;/home/zj/Dthreads/src/include/prof.h;/home/zj/Dthreads/src/include/heaplayers/logheap.h;/home/zj/Dthreads/src/include/heaplayers/mmapheap.h;/home/zj/Dthreads/src/include/heaplayers/mmapwrapper.h;/home/zj/Dthreads/src/include/heaplayers/util/timer.h;/home/zj/Dthreads/src/include/heaplayers/util/timer.h;/home/zj/Dthreads/src/include/heaplayers/util/timer.h;/home/zj/Dthreads/src/source/real.cpp;/home/zj/Dthreads/src/source/prof.cpp;
+#include <list> //C++ list
+/home/zj/Dthreads/src/include/xpersist.h;
+#include <ios> //Defines several types and functions basic to the operation of iostreams.
+/home/zj/Dthreads/src/include/heaplayers/logheap.h;
+#include <errno.h>
+/home/zj/Dthreads/src/include/xthread.h;/home/zj/Dthreads/src/include/xpageentry.h;/home/zj/Dthreads/src/include/xdefines.h;/home/zj/Dthreads/src/include/xbitmap.h;/home/zj/Dthreads/src/include/heaplayers/wrapper.cpp;
+#include <math.h>
+/home/zj/Dthreads/src/include/heaplayers/logheap.h;
+#include <pthread.h>
+/home/zj/Dthreads/src/include/xplock.h;/home/zj/Dthreads/src/include/real.h;/home/zj/Dthreads/src/include/determ.h;/home/zj/Dthreads/src/include/list.h;/home/zj/Dthreads/src/include/heaplayers/threadheap.h;/home/zj/Dthreads/src/include/heaplayers/util/posixlock.h;/home/zj/Dthreads/src/source/xthread.cpp;/home/zj/Dthreads/src/source/real.cpp;/home/zj/Dthreads/src/include/heaplayers/util/cpuinfo.h;
+#include <xmmintrin.h> //硬件相关的运算
+/home/zj/Dthreads/src/include/xpersist.h;
+#include <sys/stat.h> //系统定义文件状态所在的伪标准头文件
+/home/zj/Dthreads/src/include/heaplayers/traceheap.h;/home/zj/Dthreads/src/include/heaplayers/mmapheap.h;/home/zj/Dthreads/src/include/heaplayers/mmapwrapper.h;/home/zj/Dthreads/src/source/prof.cpp;/home/zj/Dthreads/src/include/heaplayers/util/cpuinfo.h;
+#include <fcntl.h> //fcntl.h定义了很多宏和open,fcntl函数原型
+/home/zj/Dthreads/src/include/xplock.h;/home/zj/Dthreads/src/include/xmemory.h;/home/zj/Dthreads/src/include/determ.h;/home/zj/Dthreads/src/include/list.h;/home/zj/Dthreads/src/include/heaplayers/traceheap.h;/home/zj/Dthreads/src/include/heaplayers/mmapheap.h;/home/zj/Dthreads/src/include/heaplayers/mmapwrapper.h;/home/zj/Dthreads/src/include/heaplayers/util/timer.h;/home/zj/Dthreads/src/include/heaplayers/util/timer.h;/home/zj/Dthreads/src/source/prof.cpp;/home/zj/Dthreads/src/include/heaplayers/util/cpuinfo.h;
+#include <set> //C++ set
+/home/zj/Dthreads/src/include/xpersist.h;/home/zj/Dthreads/src/include/xmemory.h;
+#include <sched.h> //执行调度
+/home/zj/Dthreads/src/include/determ.h;/home/zj/Dthreads/src/include/heaplayers/spinlock.h;
+#include <fstream> //C++,包含文件流，这样就可以使用与文件相关的一些函数
+/home/zj/Dthreads/src/include/heaplayers/logheap.h;/home/zj/Dthreads/src/include/heaplayers/traceheap.h;
+#include <cassert> //C++ assert
+/home/zj/Dthreads/src/include/heaplayers/util/timer.h;
+#include <stdio.h> 
+/home/zj/Dthreads/src/include/heaplayers/util/cpuinfo.h;/home/zj/Dthreads/src/include/xpersist.h;/home/zj/Dthreads/src/include/xplock.h;/home/zj/Dthreads/src/include/determ.h;/home/zj/Dthreads/src/include/debug.h;/home/zj/Dthreads/src/include/list.h;/home/zj/Dthreads/src/include/xdefines.h;/home/zj/Dthreads/src/include/heaplayers/stats.cpp;/home/zj/Dthreads/src/include/heaplayers/traceheap.h;/home/zj/Dthreads/src/include/heaplayers/gnuwrapper.cpp;/home/zj/Dthreads/src/include/heaplayers/profileheap.h;/home/zj/Dthreads/src/include/heaplayers/stlallocator.h;/home/zj/Dthreads/src/include/heaplayers/experimental/binheap.h;/home/zj/Dthreads/src/include/heaplayers/util/timer.h;/home/zj/Dthreads/src/include/heaplayers/util/timer.h;/home/zj/Dthreads/src/include/heaplayers/util/timer.h;/home/zj/Dthreads/src/source/real.cpp;/home/zj/Dthreads/src/source/prof.cpp;
+#include <sys/socket.h> //Internet Protocol family 
+/home/zj/Dthreads/src/include/xmemory.h;
+#include <syscall.h> //间接系统调用 
+/home/zj/Dthreads/src/include/xdefines.h;/home/zj/Dthreads/src/source/xthread.cpp;
+#include <malloc.h> // for memalign 动态内存分配
+/home/zj/Dthreads/src/include/heaplayers/wrapper.cpp;/home/zj/Dthreads/src/include/heaplayers/mallocheap.h;/home/zj/Dthreads/src/include/heaplayers/gnuwrapper.cpp;/home/zj/Dthreads/src/include/heaplayers/experimental/alignedchunk.h;
+#include <string.h>
+/home/zj/Dthreads/src/include/heaplayers/wrapper.cpp;/home/zj/Dthreads/src/include/heaplayers/util/cpuinfo.h;/home/zj/Dthreads/src/include/xpersist.h;/home/zj/Dthreads/src/include/heaplayers/traceheap.h;/home/zj/Dthreads/src/include/heaplayers/ansiwrapper.h;/home/zj/Dthreads/src/include/heaplayers/gnuwrapper.cpp;/home/zj/Dthreads/src/include/heaplayers/util/timer.h;/home/zj/Dthreads/src/source/prof.cpp;
+#include <vector> //C++ vector
+/home/zj/Dthreads/src/include/xpersist.h;
+#include <limits.h> //用于检测整型数据数据类型的表达值范围。
+/home/zj/Dthreads/src/include/heaplayers/logheap.h;/home/zj/Dthreads/src/include/heaplayers/wrapper.cpp;/home/zj/Dthreads/src/include/heaplayers/experimental/treap.h;/home/zj/Dthreads/src/include/heaplayers/util/timer.h;/home/zj/Dthreads/src/include/heaplayers/util/timer.h;/home/zj/Dthreads/src/source/prof.cpp;
+#include <stdint.h> //定义了几种扩展的整数类型和宏
+/home/zj/Dthreads/src/include/prof.h;/home/zj/Dthreads/src/source/libdthread.cpp;
+#include <sys/time.h> //日期时间头文件
+/home/zj/Dthreads/src/include/heaplayers/util/timer.h;
+#include <fstream.h> //C++ file stream
+/home/zj/Dthreads/src/include/heaplayers/experimental/multimalloc.h;
+#include <sys/wait.h> //declarations for waiting 
+/home/zj/Dthreads/src/include/xmemory.h;/home/zj/Dthreads/src/include/xthread.h;/home/zj/Dthreads/src/include/xpageentry.h;/home/zj/Dthreads/src/include/xbitmap.h;
+#include <sys/mman.h> //memory management declarations 
+/home/zj/Dthreads/src/include/heaplayers/mmapheap.h;/home/zj/Dthreads/src/include/heaplayers/mmapwrapper.h;/home/zj/Dthreads/src/source/prof.cpp;
+#include <memory> // STL This header defines general utilities to manage dynamic memory:
+/home/zj/Dthreads/src/include/heaplayers/stlallocator.h;
+#include <stdlib.h>
+/home/zj/Dthreads/src/include/xpersist.h;/home/zj/Dthreads/src/include/xplock.h;/home/zj/Dthreads/src/include/determ.h;/home/zj/Dthreads/src/include/xthread.h;/home/zj/Dthreads/src/include/list.h;/home/zj/Dthreads/src/include/xpageentry.h;/home/zj/Dthreads/src/include/xdefines.h;/home/zj/Dthreads/src/include/xbitmap.h;/home/zj/Dthreads/src/include/prof.h;/home/zj/Dthreads/src/include/heaplayers/unique.h;/home/zj/Dthreads/src/include/heaplayers/bins64k.h;/home/zj/Dthreads/src/include/heaplayers/mallocheap.h;/home/zj/Dthreads/src/include/heaplayers/traceheap.h;/home/zj/Dthreads/src/include/heaplayers/leamallocheap.h;/home/zj/Dthreads/src/include/heaplayers/ansiwrapper.h;/home/zj/Dthreads/src/include/heaplayers/gnuwrapper.cpp;/home/zj/Dthreads/src/include/heaplayers/wrapper.cpp;/home/zj/Dthreads/src/include/heaplayers/stlallocator.h;/home/zj/Dthreads/src/include/heaplayers/bins16k.h;/home/zj/Dthreads/src/include/heaplayers/experimental/alignedchunk.h;/home/zj/Dthreads/src/include/heaplayers/experimental/treap.h;/home/zj/Dthreads/src/include/heaplayers/util/dynarray.h;/home/zj/Dthreads/src/include/heaplayers/util/hash.h;/home/zj/Dthreads/src/include/heaplayers/util/dllist.h;/home/zj/Dthreads/src/source/prof.cpp;/home/zj/Dthreads/src/include/heaplayers/experimental/objectmanager.h;
+#include <sys/ioctl.h> //control device
+/home/zj/Dthreads/src/source/prof.cpp;
+#include <dlfcn.h> //dynamic linking 
+/home/zj/Dthreads/src/include/heaplayers/localmallocheap.h;/home/zj/Dthreads/src/include/heaplayers/wrapper.cpp;/home/zj/Dthreads/src/source/real.cpp;
+#include <time.h> //C/C++中的日期和时间头文件
+/home/zj/Dthreads/src/include/heaplayers/util/timer.h;/home/zj/Dthreads/src/include/heaplayers/util/timer.h;/home/zj/Dthreads/src/source/prof.cpp;
+#include <new.h> //重载operator new的时候需要用到 
+/home/zj/Dthreads/src/include/heaplayers/exceptionheap.h;/home/zj/Dthreads/src/include/heaplayers/threadspecificheap.h;/home/zj/Dthreads/src/include/heaplayers/utility.h;/home/zj/Dthreads/src/include/heaplayers/experimental/lazyslotheap.h;/home/zj/Dthreads/src/include/heaplayers/experimental/strictslotheap.h;/home/zj/Dthreads/src/include/heaplayers/experimental/testcoalesceableheap.h;/home/zj/Dthreads/src/include/heaplayers/experimental/emptychunkheap.h;
+#include <new> // for placement new This header describes functions used to manage dynamic storage in C++.
+/home/zj/Dthreads/src/include/heaplayers/unique.h;/home/zj/Dthreads/src/include/heaplayers/exceptionheap.h;/home/zj/Dthreads/src/include/heaplayers/perclassheap.h;/home/zj/Dthreads/src/include/heaplayers/mmapheap.h;/home/zj/Dthreads/src/include/heaplayers/obstackheap.h;/home/zj/Dthreads/src/include/heaplayers/obstack.h;/home/zj/Dthreads/src/include/heaplayers/threadheap.h;/home/zj/Dthreads/src/include/heaplayers/sizeheap.h;/home/zj/Dthreads/src/include/heaplayers/stlallocator.h;/home/zj/Dthreads/src/include/heaplayers/experimental/aoffheap.h;
+#include <iostream> //C++ iostream
+/home/zj/Dthreads/src/include/xglobals.h;
+#include <map> //C++ map
+/home/zj/Dthreads/src/include/xpersist.h;/home/zj/Dthreads/src/include/determ.h;/home/zj/Dthreads/src/include/list.h;/home/zj/Dthreads/src/include/heaplayers/traceheap.h;/home/zj/Dthreads/src/include/heaplayers/sanitycheckheap.h;/home/zj/Dthreads/src/include/heaplayers/mmapheap.h;/home/zj/Dthreads/src/include/heaplayers/stats.h;/home/zj/Dthreads/src/include/heaplayers/mmapwrapper.h;

@@ -1,0 +1,505 @@
+In file included from include/xglobals.h:28:0,
+                 from include/xmemory.h:42,
+                 from include/xrun.h:42,
+                 from source/libdthread.cpp:36:
+include/xpersist.h: In constructor ‘xpersist<Type, NElts>::xpersist(void*, size_t)’:
+include/xpersist.h:169:5: error: ‘_isProtected’ was not declared in this scope
+     _isProtected = false;
+     ^
+include/xpersist.h: In member function ‘void xpersist<Type, NElts>::finalize()’:
+include/xpersist.h:225:9: error: ‘_isProtected’ was not declared in this scope
+     if (_isProtected)
+         ^
+include/xpersist.h: In member function ‘void xpersist<Type, NElts>::openProtection(void*)’:
+include/xpersist.h:323:5: error: ‘_isProtected’ was not declared in this scope
+     _isProtected = true;
+     ^
+include/xpersist.h: In member function ‘void xpersist<Type, NElts>::closeProtection()’:
+include/xpersist.h:330:5: error: ‘_isProtected’ was not declared in this scope
+     _isProtected = false;
+     ^
+In file included from include/warpheap.h:47:0,
+                 from include/xmemory.h:46,
+                 from include/xrun.h:42,
+                 from source/libdthread.cpp:36:
+include/objectheader.h: In member function ‘bool objectHeader::sanityCheck()’:
+include/objectheader.h:64:89: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+    fprintf(stderr, "HLY FK in %d. Current _magic %ld at %p\n", getpid(), _magic, &_magic);
+                                                                                         ^
+In file included from include/xglobals.h:28:0,
+                 from include/xmemory.h:42,
+                 from include/xrun.h:42,
+                 from source/libdthread.cpp:36:
+include/xpersist.h: In instantiation of ‘xpersist<Type, NElts>::xpersist(void*, size_t) [with Type = char; long unsigned int NElts = 41943040ul; size_t = unsigned int]’:
+include/xglobals.h:75:109:   required from here
+include/xpersist.h:91:97: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 3 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         fprintf(stderr, "This persistent region (%ld) is too small (%ld).\n", size(), _startsize);
+                                                                                                 ^
+include/xpersist.h:91:97: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+include/xpersist.h:140:30: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         (void *) NULL, size());
+                              ^
+include/xpersist.h:164:114: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         _startaddr, size(), PROT_READ | PROT_WRITE, MAP_SHARED | (_startaddr != NULL ? MAP_FIXED : 0), _backingFd);
+                                                                                                                  ^
+include/xpersist.h: In instantiation of ‘void* xpersist<Type, NElts>::writeProtect(void*, size_t) [with Type = char; long unsigned int NElts = 41943040ul; size_t = unsigned int]’:
+include/xpersist.h:322:32:   required from ‘void xpersist<Type, NElts>::openProtection(void*) [with Type = char; long unsigned int NElts = 41943040ul]’
+include/xmemory.h:129:33:   required from here
+include/xpersist.h:259:60: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "start %p size %ld!!!\n", start, size);
+                                                            ^
+include/xpersist.h: In instantiation of ‘void* xpersist<Type, NElts>::writeProtect(void*, size_t) [with Type = char; long unsigned int NElts = 1073741824ul; size_t = unsigned int]’:
+include/xpersist.h:322:32:   required from ‘void xpersist<Type, NElts>::openProtection(void*) [with Type = char; long unsigned int NElts = 1073741824ul]’
+include/xoneheap.h:74:5:   required from ‘void xoneheap<SourceHeap>::openProtection(void*) [with SourceHeap = xheap<1073741824ul>]’
+include/xmemory.h:130:42:   required from here
+include/xpersist.h:259:60: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+In file included from include/xmemory.h:49:0,
+                 from include/xrun.h:42,
+                 from source/libdthread.cpp:36:
+include/xheap.h: In instantiation of ‘void xheap<Size>::sanityCheck() [with long unsigned int Size = 1073741824ul]’:
+include/xheap.h:145:17:   required from ‘void xheap<Size>::begin(bool) [with long unsigned int Size = 1073741824ul]’
+include/xoneheap.h:48:5:   required from ‘void xoneheap<SourceHeap>::begin(bool) [with SourceHeap = xheap<1073741824ul>]’
+include/xmemory.h:141:25:   required from here
+include/xheap.h:168:70: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "%d : WTF with magic %ld!\n", getpid(), *_magic);
+                                                                      ^
+In file included from include/xmemory.h:46:0,
+                 from include/xrun.h:42,
+                 from source/libdthread.cpp:36:
+include/warpheap.h: In instantiation of ‘size_t NewSourceHeap<SourceHeap>::getSize(void*) [with SourceHeap = SourceInternalHeap; size_t = unsigned int]’:
+include/heaplayers/segheap.h:94:33:   required from ‘size_t HL::SegHeap<NumBins, getSizeClass, getClassMaxSize, LittleHeap, BigHeap>::getSize(void*) [with int NumBins = 29; int (* getSizeClass)(size_t) = Kingsley::size2Class; size_t (* getClassMaxSize)(int) = Kingsley::class2Size; LittleHeap = HL::AdaptHeap<HL::SLList, NewSourceHeap<SourceInternalHeap> >; BigHeap = NewSourceHeap<HL::ZoneHeap<SourceInternalHeap, 104857600u> >; size_t = unsigned int]’
+include/heaplayers/segheap.h:334:51:   required from ‘void HL::StrictSegHeap<NumBins, getSizeClass, getClassMaxSize, LittleHeap, BigHeap>::free(void*) [with int NumBins = 29; int (* getSizeClass)(size_t) = Kingsley::size2Class; size_t (* getClassMaxSize)(int) = Kingsley::class2Size; LittleHeap = HL::AdaptHeap<HL::SLList, NewSourceHeap<SourceInternalHeap> >; BigHeap = NewSourceHeap<HL::ZoneHeap<SourceInternalHeap, 104857600u> >]’
+include/heaplayers/ansiwrapper.h:40:27:   required from ‘void HL::ANSIWrapper<SuperHeap>::free(void*) [with SuperHeap = HL::StrictSegHeap<29, Kingsley::size2Class, Kingsley::class2Size, HL::AdaptHeap<HL::SLList, NewSourceHeap<SourceInternalHeap> >, NewSourceHeap<HL::ZoneHeap<SourceInternalHeap, 104857600u> > >]’
+include/internalheap.h:128:16:   required from here
+include/warpheap.h:85:88: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 5 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "%d : getSize error, with ptr = %p. sz %ld \n", getpid(), ptr, sz);
+                                                                                        ^
+In file included from include/xglobals.h:28:0,
+                 from include/xmemory.h:42,
+                 from include/xrun.h:42,
+                 from source/libdthread.cpp:36:
+include/xpersist.h: In instantiation of ‘xpersist<Type, NElts>::xpersist(void*, size_t) [with Type = char; long unsigned int NElts = 1073741824ul; size_t = unsigned int]’:
+include/xheap.h:53:11:   required from ‘xheap<Size>::xheap() [with long unsigned int Size = 1073741824ul]’
+include/xoneheap.h:122:47:   required from ‘SourceHeap* xoneheap<SourceHeap>::getHeap() [with SourceHeap = xheap<1073741824ul>]’
+include/xoneheap.h:45:13:   required from ‘void xoneheap<SourceHeap>::finalize() [with SourceHeap = xheap<1073741824ul>]’
+include/xmemory.h:91:21:   required from here
+include/xpersist.h:91:97: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 3 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         fprintf(stderr, "This persistent region (%ld) is too small (%ld).\n", size(), _startsize);
+                                                                                                 ^
+include/xpersist.h:91:97: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+include/xpersist.h:140:30: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         (void *) NULL, size());
+                              ^
+include/xpersist.h:164:114: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         _startaddr, size(), PROT_READ | PROT_WRITE, MAP_SHARED | (_startaddr != NULL ? MAP_FIXED : 0), _backingFd);
+                                                                                                                  ^
+In file included from include/xmemory.h:46:0,
+                 from include/xrun.h:42,
+                 from source/libdthread.cpp:36:
+include/warpheap.h: In instantiation of ‘size_t NewSourceHeap<SourceHeap>::getSize(void*) [with SourceHeap = xoneheap<xheap<1073741824ul> >; size_t = unsigned int]’:
+include/heaplayers/segheap.h:94:33:   required from ‘size_t HL::SegHeap<NumBins, getSizeClass, getClassMaxSize, LittleHeap, BigHeap>::getSize(void*) [with int NumBins = 29; int (* getSizeClass)(size_t) = Kingsley::size2Class; size_t (* getClassMaxSize)(int) = Kingsley::class2Size; LittleHeap = HL::AdaptHeap<HL::SLList, NewSourceHeap<xoneheap<xheap<1073741824ul> > > >; BigHeap = NewSourceHeap<HL::ZoneHeap<xoneheap<xheap<1073741824ul> >, 10485760u> >; size_t = unsigned int]’
+include/heaplayers/ansiwrapper.h:83:37:   required from ‘size_t HL::ANSIWrapper<SuperHeap>::getSize(void*) [with SuperHeap = HL::StrictSegHeap<29, Kingsley::size2Class, Kingsley::class2Size, HL::AdaptHeap<HL::SLList, NewSourceHeap<xoneheap<xheap<1073741824ul> > > >, NewSourceHeap<HL::ZoneHeap<xoneheap<xheap<1073741824ul> >, 10485760u> > >; size_t = unsigned int]’
+include/xadaptheap.h:70:28:   required from ‘size_t xadaptheap<Heap, Source, ChunkSize>::getSize(void*) [with Heap = PerThreadHeap; Source = xoneheap<xheap<1073741824ul> >; int ChunkSize = 10485760; size_t = unsigned int]’
+include/xmemory.h:125:30:   required from here
+include/warpheap.h:85:88: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 5 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "%d : getSize error, with ptr = %p. sz %ld \n", getpid(), ptr, sz);
+                                                                                        ^
+In file included from include/xmemory.h:49:0,
+                 from include/xrun.h:42,
+                 from source/libdthread.cpp:36:
+include/xheap.h: In instantiation of ‘void* xheap<Size>::malloc(size_t) [with long unsigned int Size = 1073741824ul; size_t = unsigned int]’:
+include/xoneheap.h:110:32:   required from ‘void* xoneheap<SourceHeap>::malloc(size_t) [with SourceHeap = xheap<1073741824ul>; size_t = unsigned int]’
+include/heaplayers/zoneheap.h:92:60:   required from ‘void* HL::ZoneHeap<Super, ChunkSize>::slowMalloc(size_t) [with Super = xoneheap<xheap<1073741824ul> >; unsigned int ChunkSize = 10485760u; size_t = unsigned int]’
+include/heaplayers/zoneheap.h:71:28:   required from ‘void* HL::ZoneHeap<Super, ChunkSize>::zoneMalloc(size_t) [with Super = xoneheap<xheap<1073741824ul> >; unsigned int ChunkSize = 10485760u; size_t = unsigned int]’
+include/heaplayers/zoneheap.h:47:34:   required from ‘void* HL::ZoneHeap<Super, ChunkSize>::malloc(size_t) [with Super = xoneheap<xheap<1073741824ul> >; unsigned int ChunkSize = 10485760u; size_t = unsigned int]’
+include/warpheap.h:63:62:   required from ‘void* NewSourceHeap<SourceHeap>::malloc(size_t) [with SourceHeap = HL::ZoneHeap<xoneheap<xheap<1073741824ul> >, 10485760u>; size_t = unsigned int]’
+include/heaplayers/segheap.h:325:8:   required from ‘void* HL::StrictSegHeap<NumBins, getSizeClass, getClassMaxSize, LittleHeap, BigHeap>::malloc(size_t) [with int NumBins = 29; int (* getSizeClass)(size_t) = Kingsley::size2Class; size_t (* getClassMaxSize)(int) = Kingsley::class2Size; LittleHeap = HL::AdaptHeap<HL::SLList, NewSourceHeap<xoneheap<xheap<1073741824ul> > > >; BigHeap = NewSourceHeap<HL::ZoneHeap<xoneheap<xheap<1073741824ul> >, 10485760u> >; size_t = unsigned int]’
+include/heaplayers/ansiwrapper.h:34:39:   required from ‘void* HL::ANSIWrapper<SuperHeap>::malloc(size_t) [with SuperHeap = HL::StrictSegHeap<29, Kingsley::size2Class, Kingsley::class2Size, HL::AdaptHeap<HL::SLList, NewSourceHeap<xoneheap<xheap<1073741824ul> > > >, NewSourceHeap<HL::ZoneHeap<xoneheap<xheap<1073741824ul> >, 10485760u> > >; size_t = unsigned int]’
+include/warpheap.h:119:38:   required from ‘void* KingsleyStyleHeap<SourceHeap, chunky>::malloc(size_t) [with SourceHeap = xoneheap<xheap<1073741824ul> >; int chunky = 10485760; size_t = unsigned int]’
+include/warpheap.h:162:38:   required from ‘void* PPHeap<NumHeaps, TheHeapType>::malloc(int, size_t) [with int NumHeaps = 32; TheHeapType = KingsleyStyleHeap<xoneheap<xheap<1073741824ul> >, 10485760>; size_t = unsigned int]’
+include/xadaptheap.h:62:34:   required from ‘void* xadaptheap<Heap, Source, ChunkSize>::malloc(int, size_t) [with Heap = PerThreadHeap; Source = xoneheap<xheap<1073741824ul> >; int ChunkSize = 10485760; size_t = unsigned int]’
+include/xmemory.h:103:43:   required from here
+include/xheap.h:103:182: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 5 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "Something very bad, maybe OUTOFMEMORY or memory corruption,  has happened: _start = %x, _position = %p, _remaining = %ld.\n", *_start, *_position, *_remaining);
+                                                                                                                                                                                      ^
+include/xheap.h:109:178: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 3 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "OUTOFMEMORY: remaining[%ld], sz[%ld] thread[%d], try to change PROTECTEDHEAP_SIZE in xdefine.h to a bigger value\n", *_remaining, sz, (int) pthread_self());
+                                                                                                                                                                                  ^
+include/xheap.h:109:178: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+In file included from include/xglobals.h:28:0,
+                 from include/xmemory.h:42,
+                 from include/xrun.h:42,
+                 from source/xrun.cpp:1:
+include/xpersist.h: In constructor ‘xpersist<Type, NElts>::xpersist(void*, size_t)’:
+include/xpersist.h:169:5: error: ‘_isProtected’ was not declared in this scope
+     _isProtected = false;
+     ^
+include/xpersist.h: In member function ‘void xpersist<Type, NElts>::finalize()’:
+include/xpersist.h:225:9: error: ‘_isProtected’ was not declared in this scope
+     if (_isProtected)
+         ^
+include/xpersist.h: In member function ‘void xpersist<Type, NElts>::openProtection(void*)’:
+include/xpersist.h:323:5: error: ‘_isProtected’ was not declared in this scope
+     _isProtected = true;
+     ^
+include/xpersist.h: In member function ‘void xpersist<Type, NElts>::closeProtection()’:
+include/xpersist.h:330:5: error: ‘_isProtected’ was not declared in this scope
+     _isProtected = false;
+     ^
+In file included from include/warpheap.h:47:0,
+                 from include/xmemory.h:46,
+                 from include/xrun.h:42,
+                 from source/xrun.cpp:1:
+include/objectheader.h: In member function ‘bool objectHeader::sanityCheck()’:
+include/objectheader.h:64:89: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+    fprintf(stderr, "HLY FK in %d. Current _magic %ld at %p\n", getpid(), _magic, &_magic);
+                                                                                         ^
+In file included from include/xglobals.h:28:0,
+                 from include/xmemory.h:42,
+                 from include/xrun.h:42,
+                 from source/xrun.cpp:1:
+include/xpersist.h: In instantiation of ‘xpersist<Type, NElts>::xpersist(void*, size_t) [with Type = char; long unsigned int NElts = 41943040ul; size_t = unsigned int]’:
+include/xglobals.h:75:109:   required from here
+include/xpersist.h:91:97: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 3 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         fprintf(stderr, "This persistent region (%ld) is too small (%ld).\n", size(), _startsize);
+                                                                                                 ^
+include/xpersist.h:91:97: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+include/xpersist.h:140:30: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         (void *) NULL, size());
+                              ^
+include/xpersist.h:164:114: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         _startaddr, size(), PROT_READ | PROT_WRITE, MAP_SHARED | (_startaddr != NULL ? MAP_FIXED : 0), _backingFd);
+                                                                                                                  ^
+include/xpersist.h: In instantiation of ‘void* xpersist<Type, NElts>::writeProtect(void*, size_t) [with Type = char; long unsigned int NElts = 41943040ul; size_t = unsigned int]’:
+include/xpersist.h:322:32:   required from ‘void xpersist<Type, NElts>::openProtection(void*) [with Type = char; long unsigned int NElts = 41943040ul]’
+include/xmemory.h:129:33:   required from here
+include/xpersist.h:259:60: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "start %p size %ld!!!\n", start, size);
+                                                            ^
+include/xpersist.h: In instantiation of ‘void* xpersist<Type, NElts>::writeProtect(void*, size_t) [with Type = char; long unsigned int NElts = 1073741824ul; size_t = unsigned int]’:
+include/xpersist.h:322:32:   required from ‘void xpersist<Type, NElts>::openProtection(void*) [with Type = char; long unsigned int NElts = 1073741824ul]’
+include/xoneheap.h:74:5:   required from ‘void xoneheap<SourceHeap>::openProtection(void*) [with SourceHeap = xheap<1073741824ul>]’
+include/xmemory.h:130:42:   required from here
+include/xpersist.h:259:60: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+In file included from include/xmemory.h:49:0,
+                 from include/xrun.h:42,
+                 from source/xrun.cpp:1:
+include/xheap.h: In instantiation of ‘void xheap<Size>::sanityCheck() [with long unsigned int Size = 1073741824ul]’:
+include/xheap.h:145:17:   required from ‘void xheap<Size>::begin(bool) [with long unsigned int Size = 1073741824ul]’
+include/xoneheap.h:48:5:   required from ‘void xoneheap<SourceHeap>::begin(bool) [with SourceHeap = xheap<1073741824ul>]’
+include/xmemory.h:141:25:   required from here
+include/xheap.h:168:70: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "%d : WTF with magic %ld!\n", getpid(), *_magic);
+                                                                      ^
+In file included from include/xmemory.h:46:0,
+                 from include/xrun.h:42,
+                 from source/xrun.cpp:1:
+include/warpheap.h: In instantiation of ‘size_t NewSourceHeap<SourceHeap>::getSize(void*) [with SourceHeap = SourceInternalHeap; size_t = unsigned int]’:
+include/heaplayers/segheap.h:94:33:   required from ‘size_t HL::SegHeap<NumBins, getSizeClass, getClassMaxSize, LittleHeap, BigHeap>::getSize(void*) [with int NumBins = 29; int (* getSizeClass)(size_t) = Kingsley::size2Class; size_t (* getClassMaxSize)(int) = Kingsley::class2Size; LittleHeap = HL::AdaptHeap<HL::SLList, NewSourceHeap<SourceInternalHeap> >; BigHeap = NewSourceHeap<HL::ZoneHeap<SourceInternalHeap, 104857600u> >; size_t = unsigned int]’
+include/heaplayers/segheap.h:334:51:   required from ‘void HL::StrictSegHeap<NumBins, getSizeClass, getClassMaxSize, LittleHeap, BigHeap>::free(void*) [with int NumBins = 29; int (* getSizeClass)(size_t) = Kingsley::size2Class; size_t (* getClassMaxSize)(int) = Kingsley::class2Size; LittleHeap = HL::AdaptHeap<HL::SLList, NewSourceHeap<SourceInternalHeap> >; BigHeap = NewSourceHeap<HL::ZoneHeap<SourceInternalHeap, 104857600u> >]’
+include/heaplayers/ansiwrapper.h:40:27:   required from ‘void HL::ANSIWrapper<SuperHeap>::free(void*) [with SuperHeap = HL::StrictSegHeap<29, Kingsley::size2Class, Kingsley::class2Size, HL::AdaptHeap<HL::SLList, NewSourceHeap<SourceInternalHeap> >, NewSourceHeap<HL::ZoneHeap<SourceInternalHeap, 104857600u> > >]’
+include/internalheap.h:128:16:   required from here
+include/warpheap.h:85:88: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 5 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "%d : getSize error, with ptr = %p. sz %ld \n", getpid(), ptr, sz);
+                                                                                        ^
+In file included from include/xglobals.h:28:0,
+                 from include/xmemory.h:42,
+                 from include/xrun.h:42,
+                 from source/xrun.cpp:1:
+include/xpersist.h: In instantiation of ‘xpersist<Type, NElts>::xpersist(void*, size_t) [with Type = char; long unsigned int NElts = 1073741824ul; size_t = unsigned int]’:
+include/xheap.h:53:11:   required from ‘xheap<Size>::xheap() [with long unsigned int Size = 1073741824ul]’
+include/xoneheap.h:122:47:   required from ‘SourceHeap* xoneheap<SourceHeap>::getHeap() [with SourceHeap = xheap<1073741824ul>]’
+include/xoneheap.h:45:13:   required from ‘void xoneheap<SourceHeap>::finalize() [with SourceHeap = xheap<1073741824ul>]’
+include/xmemory.h:91:21:   required from here
+include/xpersist.h:91:97: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 3 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         fprintf(stderr, "This persistent region (%ld) is too small (%ld).\n", size(), _startsize);
+                                                                                                 ^
+include/xpersist.h:91:97: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+include/xpersist.h:140:30: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         (void *) NULL, size());
+                              ^
+include/xpersist.h:164:114: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         _startaddr, size(), PROT_READ | PROT_WRITE, MAP_SHARED | (_startaddr != NULL ? MAP_FIXED : 0), _backingFd);
+                                                                                                                  ^
+In file included from include/xmemory.h:46:0,
+                 from include/xrun.h:42,
+                 from source/xrun.cpp:1:
+include/warpheap.h: In instantiation of ‘size_t NewSourceHeap<SourceHeap>::getSize(void*) [with SourceHeap = xoneheap<xheap<1073741824ul> >; size_t = unsigned int]’:
+include/heaplayers/segheap.h:94:33:   required from ‘size_t HL::SegHeap<NumBins, getSizeClass, getClassMaxSize, LittleHeap, BigHeap>::getSize(void*) [with int NumBins = 29; int (* getSizeClass)(size_t) = Kingsley::size2Class; size_t (* getClassMaxSize)(int) = Kingsley::class2Size; LittleHeap = HL::AdaptHeap<HL::SLList, NewSourceHeap<xoneheap<xheap<1073741824ul> > > >; BigHeap = NewSourceHeap<HL::ZoneHeap<xoneheap<xheap<1073741824ul> >, 10485760u> >; size_t = unsigned int]’
+include/heaplayers/ansiwrapper.h:83:37:   required from ‘size_t HL::ANSIWrapper<SuperHeap>::getSize(void*) [with SuperHeap = HL::StrictSegHeap<29, Kingsley::size2Class, Kingsley::class2Size, HL::AdaptHeap<HL::SLList, NewSourceHeap<xoneheap<xheap<1073741824ul> > > >, NewSourceHeap<HL::ZoneHeap<xoneheap<xheap<1073741824ul> >, 10485760u> > >; size_t = unsigned int]’
+include/xadaptheap.h:70:28:   required from ‘size_t xadaptheap<Heap, Source, ChunkSize>::getSize(void*) [with Heap = PerThreadHeap; Source = xoneheap<xheap<1073741824ul> >; int ChunkSize = 10485760; size_t = unsigned int]’
+include/xmemory.h:125:30:   required from here
+include/warpheap.h:85:88: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 5 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "%d : getSize error, with ptr = %p. sz %ld \n", getpid(), ptr, sz);
+                                                                                        ^
+In file included from include/xmemory.h:49:0,
+                 from include/xrun.h:42,
+                 from source/xrun.cpp:1:
+include/xheap.h: In instantiation of ‘void* xheap<Size>::malloc(size_t) [with long unsigned int Size = 1073741824ul; size_t = unsigned int]’:
+include/xoneheap.h:110:32:   required from ‘void* xoneheap<SourceHeap>::malloc(size_t) [with SourceHeap = xheap<1073741824ul>; size_t = unsigned int]’
+include/heaplayers/zoneheap.h:92:60:   required from ‘void* HL::ZoneHeap<Super, ChunkSize>::slowMalloc(size_t) [with Super = xoneheap<xheap<1073741824ul> >; unsigned int ChunkSize = 10485760u; size_t = unsigned int]’
+include/heaplayers/zoneheap.h:71:28:   required from ‘void* HL::ZoneHeap<Super, ChunkSize>::zoneMalloc(size_t) [with Super = xoneheap<xheap<1073741824ul> >; unsigned int ChunkSize = 10485760u; size_t = unsigned int]’
+include/heaplayers/zoneheap.h:47:34:   required from ‘void* HL::ZoneHeap<Super, ChunkSize>::malloc(size_t) [with Super = xoneheap<xheap<1073741824ul> >; unsigned int ChunkSize = 10485760u; size_t = unsigned int]’
+include/warpheap.h:63:62:   required from ‘void* NewSourceHeap<SourceHeap>::malloc(size_t) [with SourceHeap = HL::ZoneHeap<xoneheap<xheap<1073741824ul> >, 10485760u>; size_t = unsigned int]’
+include/heaplayers/segheap.h:325:8:   required from ‘void* HL::StrictSegHeap<NumBins, getSizeClass, getClassMaxSize, LittleHeap, BigHeap>::malloc(size_t) [with int NumBins = 29; int (* getSizeClass)(size_t) = Kingsley::size2Class; size_t (* getClassMaxSize)(int) = Kingsley::class2Size; LittleHeap = HL::AdaptHeap<HL::SLList, NewSourceHeap<xoneheap<xheap<1073741824ul> > > >; BigHeap = NewSourceHeap<HL::ZoneHeap<xoneheap<xheap<1073741824ul> >, 10485760u> >; size_t = unsigned int]’
+include/heaplayers/ansiwrapper.h:34:39:   required from ‘void* HL::ANSIWrapper<SuperHeap>::malloc(size_t) [with SuperHeap = HL::StrictSegHeap<29, Kingsley::size2Class, Kingsley::class2Size, HL::AdaptHeap<HL::SLList, NewSourceHeap<xoneheap<xheap<1073741824ul> > > >, NewSourceHeap<HL::ZoneHeap<xoneheap<xheap<1073741824ul> >, 10485760u> > >; size_t = unsigned int]’
+include/warpheap.h:119:38:   required from ‘void* KingsleyStyleHeap<SourceHeap, chunky>::malloc(size_t) [with SourceHeap = xoneheap<xheap<1073741824ul> >; int chunky = 10485760; size_t = unsigned int]’
+include/warpheap.h:162:38:   required from ‘void* PPHeap<NumHeaps, TheHeapType>::malloc(int, size_t) [with int NumHeaps = 32; TheHeapType = KingsleyStyleHeap<xoneheap<xheap<1073741824ul> >, 10485760>; size_t = unsigned int]’
+include/xadaptheap.h:62:34:   required from ‘void* xadaptheap<Heap, Source, ChunkSize>::malloc(int, size_t) [with Heap = PerThreadHeap; Source = xoneheap<xheap<1073741824ul> >; int ChunkSize = 10485760; size_t = unsigned int]’
+include/xmemory.h:103:43:   required from here
+include/xheap.h:103:182: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 5 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "Something very bad, maybe OUTOFMEMORY or memory corruption,  has happened: _start = %x, _position = %p, _remaining = %ld.\n", *_start, *_position, *_remaining);
+                                                                                                                                                                                      ^
+include/xheap.h:109:178: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 3 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "OUTOFMEMORY: remaining[%ld], sz[%ld] thread[%d], try to change PROTECTEDHEAP_SIZE in xdefine.h to a bigger value\n", *_remaining, sz, (int) pthread_self());
+                                                                                                                                                                                  ^
+include/xheap.h:109:178: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+In file included from include/xglobals.h:28:0,
+                 from include/xmemory.h:42,
+                 from include/xrun.h:42,
+                 from source/xthread.cpp:30:
+include/xpersist.h: In constructor ‘xpersist<Type, NElts>::xpersist(void*, size_t)’:
+include/xpersist.h:169:5: error: ‘_isProtected’ was not declared in this scope
+     _isProtected = false;
+     ^
+include/xpersist.h: In member function ‘void xpersist<Type, NElts>::finalize()’:
+include/xpersist.h:225:9: error: ‘_isProtected’ was not declared in this scope
+     if (_isProtected)
+         ^
+include/xpersist.h: In member function ‘void xpersist<Type, NElts>::openProtection(void*)’:
+include/xpersist.h:323:5: error: ‘_isProtected’ was not declared in this scope
+     _isProtected = true;
+     ^
+include/xpersist.h: In member function ‘void xpersist<Type, NElts>::closeProtection()’:
+include/xpersist.h:330:5: error: ‘_isProtected’ was not declared in this scope
+     _isProtected = false;
+     ^
+In file included from include/warpheap.h:47:0,
+                 from include/xmemory.h:46,
+                 from include/xrun.h:42,
+                 from source/xthread.cpp:30:
+include/objectheader.h: In member function ‘bool objectHeader::sanityCheck()’:
+include/objectheader.h:64:89: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+    fprintf(stderr, "HLY FK in %d. Current _magic %ld at %p\n", getpid(), _magic, &_magic);
+                                                                                         ^
+In file included from include/xglobals.h:28:0,
+                 from include/xmemory.h:42,
+                 from include/xrun.h:42,
+                 from source/xthread.cpp:30:
+include/xpersist.h: In instantiation of ‘xpersist<Type, NElts>::xpersist(void*, size_t) [with Type = char; long unsigned int NElts = 41943040ul; size_t = unsigned int]’:
+include/xglobals.h:75:109:   required from here
+include/xpersist.h:91:97: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 3 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         fprintf(stderr, "This persistent region (%ld) is too small (%ld).\n", size(), _startsize);
+                                                                                                 ^
+include/xpersist.h:91:97: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+include/xpersist.h:140:30: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         (void *) NULL, size());
+                              ^
+include/xpersist.h:164:114: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         _startaddr, size(), PROT_READ | PROT_WRITE, MAP_SHARED | (_startaddr != NULL ? MAP_FIXED : 0), _backingFd);
+                                                                                                                  ^
+include/xpersist.h: In instantiation of ‘void* xpersist<Type, NElts>::writeProtect(void*, size_t) [with Type = char; long unsigned int NElts = 41943040ul; size_t = unsigned int]’:
+include/xpersist.h:322:32:   required from ‘void xpersist<Type, NElts>::openProtection(void*) [with Type = char; long unsigned int NElts = 41943040ul]’
+include/xmemory.h:129:33:   required from here
+include/xpersist.h:259:60: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "start %p size %ld!!!\n", start, size);
+                                                            ^
+include/xpersist.h: In instantiation of ‘void* xpersist<Type, NElts>::writeProtect(void*, size_t) [with Type = char; long unsigned int NElts = 1073741824ul; size_t = unsigned int]’:
+include/xpersist.h:322:32:   required from ‘void xpersist<Type, NElts>::openProtection(void*) [with Type = char; long unsigned int NElts = 1073741824ul]’
+include/xoneheap.h:74:5:   required from ‘void xoneheap<SourceHeap>::openProtection(void*) [with SourceHeap = xheap<1073741824ul>]’
+include/xmemory.h:130:42:   required from here
+include/xpersist.h:259:60: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+In file included from include/xmemory.h:49:0,
+                 from include/xrun.h:42,
+                 from source/xthread.cpp:30:
+include/xheap.h: In instantiation of ‘void xheap<Size>::sanityCheck() [with long unsigned int Size = 1073741824ul]’:
+include/xheap.h:145:17:   required from ‘void xheap<Size>::begin(bool) [with long unsigned int Size = 1073741824ul]’
+include/xoneheap.h:48:5:   required from ‘void xoneheap<SourceHeap>::begin(bool) [with SourceHeap = xheap<1073741824ul>]’
+include/xmemory.h:141:25:   required from here
+include/xheap.h:168:70: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "%d : WTF with magic %ld!\n", getpid(), *_magic);
+                                                                      ^
+In file included from include/xmemory.h:46:0,
+                 from include/xrun.h:42,
+                 from source/xthread.cpp:30:
+include/warpheap.h: In instantiation of ‘size_t NewSourceHeap<SourceHeap>::getSize(void*) [with SourceHeap = SourceInternalHeap; size_t = unsigned int]’:
+include/heaplayers/segheap.h:94:33:   required from ‘size_t HL::SegHeap<NumBins, getSizeClass, getClassMaxSize, LittleHeap, BigHeap>::getSize(void*) [with int NumBins = 29; int (* getSizeClass)(size_t) = Kingsley::size2Class; size_t (* getClassMaxSize)(int) = Kingsley::class2Size; LittleHeap = HL::AdaptHeap<HL::SLList, NewSourceHeap<SourceInternalHeap> >; BigHeap = NewSourceHeap<HL::ZoneHeap<SourceInternalHeap, 104857600u> >; size_t = unsigned int]’
+include/heaplayers/segheap.h:334:51:   required from ‘void HL::StrictSegHeap<NumBins, getSizeClass, getClassMaxSize, LittleHeap, BigHeap>::free(void*) [with int NumBins = 29; int (* getSizeClass)(size_t) = Kingsley::size2Class; size_t (* getClassMaxSize)(int) = Kingsley::class2Size; LittleHeap = HL::AdaptHeap<HL::SLList, NewSourceHeap<SourceInternalHeap> >; BigHeap = NewSourceHeap<HL::ZoneHeap<SourceInternalHeap, 104857600u> >]’
+include/heaplayers/ansiwrapper.h:40:27:   required from ‘void HL::ANSIWrapper<SuperHeap>::free(void*) [with SuperHeap = HL::StrictSegHeap<29, Kingsley::size2Class, Kingsley::class2Size, HL::AdaptHeap<HL::SLList, NewSourceHeap<SourceInternalHeap> >, NewSourceHeap<HL::ZoneHeap<SourceInternalHeap, 104857600u> > >]’
+include/internalheap.h:128:16:   required from here
+include/warpheap.h:85:88: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 5 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "%d : getSize error, with ptr = %p. sz %ld \n", getpid(), ptr, sz);
+                                                                                        ^
+In file included from include/xglobals.h:28:0,
+                 from include/xmemory.h:42,
+                 from include/xrun.h:42,
+                 from source/xthread.cpp:30:
+include/xpersist.h: In instantiation of ‘xpersist<Type, NElts>::xpersist(void*, size_t) [with Type = char; long unsigned int NElts = 1073741824ul; size_t = unsigned int]’:
+include/xheap.h:53:11:   required from ‘xheap<Size>::xheap() [with long unsigned int Size = 1073741824ul]’
+include/xoneheap.h:122:47:   required from ‘SourceHeap* xoneheap<SourceHeap>::getHeap() [with SourceHeap = xheap<1073741824ul>]’
+include/xoneheap.h:45:13:   required from ‘void xoneheap<SourceHeap>::finalize() [with SourceHeap = xheap<1073741824ul>]’
+include/xmemory.h:91:21:   required from here
+include/xpersist.h:91:97: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 3 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         fprintf(stderr, "This persistent region (%ld) is too small (%ld).\n", size(), _startsize);
+                                                                                                 ^
+include/xpersist.h:91:97: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+include/xpersist.h:140:30: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         (void *) NULL, size());
+                              ^
+include/xpersist.h:164:114: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         _startaddr, size(), PROT_READ | PROT_WRITE, MAP_SHARED | (_startaddr != NULL ? MAP_FIXED : 0), _backingFd);
+                                                                                                                  ^
+In file included from include/xmemory.h:46:0,
+                 from include/xrun.h:42,
+                 from source/xthread.cpp:30:
+include/warpheap.h: In instantiation of ‘size_t NewSourceHeap<SourceHeap>::getSize(void*) [with SourceHeap = xoneheap<xheap<1073741824ul> >; size_t = unsigned int]’:
+include/heaplayers/segheap.h:94:33:   required from ‘size_t HL::SegHeap<NumBins, getSizeClass, getClassMaxSize, LittleHeap, BigHeap>::getSize(void*) [with int NumBins = 29; int (* getSizeClass)(size_t) = Kingsley::size2Class; size_t (* getClassMaxSize)(int) = Kingsley::class2Size; LittleHeap = HL::AdaptHeap<HL::SLList, NewSourceHeap<xoneheap<xheap<1073741824ul> > > >; BigHeap = NewSourceHeap<HL::ZoneHeap<xoneheap<xheap<1073741824ul> >, 10485760u> >; size_t = unsigned int]’
+include/heaplayers/ansiwrapper.h:83:37:   required from ‘size_t HL::ANSIWrapper<SuperHeap>::getSize(void*) [with SuperHeap = HL::StrictSegHeap<29, Kingsley::size2Class, Kingsley::class2Size, HL::AdaptHeap<HL::SLList, NewSourceHeap<xoneheap<xheap<1073741824ul> > > >, NewSourceHeap<HL::ZoneHeap<xoneheap<xheap<1073741824ul> >, 10485760u> > >; size_t = unsigned int]’
+include/xadaptheap.h:70:28:   required from ‘size_t xadaptheap<Heap, Source, ChunkSize>::getSize(void*) [with Heap = PerThreadHeap; Source = xoneheap<xheap<1073741824ul> >; int ChunkSize = 10485760; size_t = unsigned int]’
+include/xmemory.h:125:30:   required from here
+include/warpheap.h:85:88: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 5 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "%d : getSize error, with ptr = %p. sz %ld \n", getpid(), ptr, sz);
+                                                                                        ^
+In file included from include/xmemory.h:49:0,
+                 from include/xrun.h:42,
+                 from source/xthread.cpp:30:
+include/xheap.h: In instantiation of ‘void* xheap<Size>::malloc(size_t) [with long unsigned int Size = 1073741824ul; size_t = unsigned int]’:
+include/xoneheap.h:110:32:   required from ‘void* xoneheap<SourceHeap>::malloc(size_t) [with SourceHeap = xheap<1073741824ul>; size_t = unsigned int]’
+include/heaplayers/zoneheap.h:92:60:   required from ‘void* HL::ZoneHeap<Super, ChunkSize>::slowMalloc(size_t) [with Super = xoneheap<xheap<1073741824ul> >; unsigned int ChunkSize = 10485760u; size_t = unsigned int]’
+include/heaplayers/zoneheap.h:71:28:   required from ‘void* HL::ZoneHeap<Super, ChunkSize>::zoneMalloc(size_t) [with Super = xoneheap<xheap<1073741824ul> >; unsigned int ChunkSize = 10485760u; size_t = unsigned int]’
+include/heaplayers/zoneheap.h:47:34:   required from ‘void* HL::ZoneHeap<Super, ChunkSize>::malloc(size_t) [with Super = xoneheap<xheap<1073741824ul> >; unsigned int ChunkSize = 10485760u; size_t = unsigned int]’
+include/warpheap.h:63:62:   required from ‘void* NewSourceHeap<SourceHeap>::malloc(size_t) [with SourceHeap = HL::ZoneHeap<xoneheap<xheap<1073741824ul> >, 10485760u>; size_t = unsigned int]’
+include/heaplayers/segheap.h:325:8:   required from ‘void* HL::StrictSegHeap<NumBins, getSizeClass, getClassMaxSize, LittleHeap, BigHeap>::malloc(size_t) [with int NumBins = 29; int (* getSizeClass)(size_t) = Kingsley::size2Class; size_t (* getClassMaxSize)(int) = Kingsley::class2Size; LittleHeap = HL::AdaptHeap<HL::SLList, NewSourceHeap<xoneheap<xheap<1073741824ul> > > >; BigHeap = NewSourceHeap<HL::ZoneHeap<xoneheap<xheap<1073741824ul> >, 10485760u> >; size_t = unsigned int]’
+include/heaplayers/ansiwrapper.h:34:39:   required from ‘void* HL::ANSIWrapper<SuperHeap>::malloc(size_t) [with SuperHeap = HL::StrictSegHeap<29, Kingsley::size2Class, Kingsley::class2Size, HL::AdaptHeap<HL::SLList, NewSourceHeap<xoneheap<xheap<1073741824ul> > > >, NewSourceHeap<HL::ZoneHeap<xoneheap<xheap<1073741824ul> >, 10485760u> > >; size_t = unsigned int]’
+include/warpheap.h:119:38:   required from ‘void* KingsleyStyleHeap<SourceHeap, chunky>::malloc(size_t) [with SourceHeap = xoneheap<xheap<1073741824ul> >; int chunky = 10485760; size_t = unsigned int]’
+include/warpheap.h:162:38:   required from ‘void* PPHeap<NumHeaps, TheHeapType>::malloc(int, size_t) [with int NumHeaps = 32; TheHeapType = KingsleyStyleHeap<xoneheap<xheap<1073741824ul> >, 10485760>; size_t = unsigned int]’
+include/xadaptheap.h:62:34:   required from ‘void* xadaptheap<Heap, Source, ChunkSize>::malloc(int, size_t) [with Heap = PerThreadHeap; Source = xoneheap<xheap<1073741824ul> >; int ChunkSize = 10485760; size_t = unsigned int]’
+include/xmemory.h:103:43:   required from here
+include/xheap.h:103:182: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 5 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "Something very bad, maybe OUTOFMEMORY or memory corruption,  has happened: _start = %x, _position = %p, _remaining = %ld.\n", *_start, *_position, *_remaining);
+                                                                                                                                                                                      ^
+include/xheap.h:109:178: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 3 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "OUTOFMEMORY: remaining[%ld], sz[%ld] thread[%d], try to change PROTECTEDHEAP_SIZE in xdefine.h to a bigger value\n", *_remaining, sz, (int) pthread_self());
+                                                                                                                                                                                  ^
+include/xheap.h:109:178: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+In file included from include/xglobals.h:28:0,
+                 from include/xmemory.h:42,
+                 from source/xmemory.cpp:1:
+include/xpersist.h: In constructor ‘xpersist<Type, NElts>::xpersist(void*, size_t)’:
+include/xpersist.h:169:5: error: ‘_isProtected’ was not declared in this scope
+     _isProtected = false;
+     ^
+include/xpersist.h: In member function ‘void xpersist<Type, NElts>::finalize()’:
+include/xpersist.h:225:9: error: ‘_isProtected’ was not declared in this scope
+     if (_isProtected)
+         ^
+include/xpersist.h: In member function ‘void xpersist<Type, NElts>::openProtection(void*)’:
+include/xpersist.h:323:5: error: ‘_isProtected’ was not declared in this scope
+     _isProtected = true;
+     ^
+include/xpersist.h: In member function ‘void xpersist<Type, NElts>::closeProtection()’:
+include/xpersist.h:330:5: error: ‘_isProtected’ was not declared in this scope
+     _isProtected = false;
+     ^
+In file included from include/warpheap.h:47:0,
+                 from include/xmemory.h:46,
+                 from source/xmemory.cpp:1:
+include/objectheader.h: In member function ‘bool objectHeader::sanityCheck()’:
+include/objectheader.h:64:89: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+    fprintf(stderr, "HLY FK in %d. Current _magic %ld at %p\n", getpid(), _magic, &_magic);
+                                                                                         ^
+In file included from include/xglobals.h:28:0,
+                 from include/xmemory.h:42,
+                 from source/xmemory.cpp:1:
+include/xpersist.h: In instantiation of ‘xpersist<Type, NElts>::xpersist(void*, size_t) [with Type = char; long unsigned int NElts = 41943040ul; size_t = unsigned int]’:
+include/xglobals.h:75:109:   required from here
+include/xpersist.h:91:97: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 3 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         fprintf(stderr, "This persistent region (%ld) is too small (%ld).\n", size(), _startsize);
+                                                                                                 ^
+include/xpersist.h:91:97: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+include/xpersist.h:140:30: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         (void *) NULL, size());
+                              ^
+include/xpersist.h:164:114: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         _startaddr, size(), PROT_READ | PROT_WRITE, MAP_SHARED | (_startaddr != NULL ? MAP_FIXED : 0), _backingFd);
+                                                                                                                  ^
+include/xpersist.h: In instantiation of ‘void* xpersist<Type, NElts>::writeProtect(void*, size_t) [with Type = char; long unsigned int NElts = 41943040ul; size_t = unsigned int]’:
+include/xpersist.h:322:32:   required from ‘void xpersist<Type, NElts>::openProtection(void*) [with Type = char; long unsigned int NElts = 41943040ul]’
+include/xmemory.h:129:33:   required from here
+include/xpersist.h:259:60: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "start %p size %ld!!!\n", start, size);
+                                                            ^
+include/xpersist.h: In instantiation of ‘void* xpersist<Type, NElts>::writeProtect(void*, size_t) [with Type = char; long unsigned int NElts = 1073741824ul; size_t = unsigned int]’:
+include/xpersist.h:322:32:   required from ‘void xpersist<Type, NElts>::openProtection(void*) [with Type = char; long unsigned int NElts = 1073741824ul]’
+include/xoneheap.h:74:5:   required from ‘void xoneheap<SourceHeap>::openProtection(void*) [with SourceHeap = xheap<1073741824ul>]’
+include/xmemory.h:130:42:   required from here
+include/xpersist.h:259:60: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+In file included from include/xmemory.h:49:0,
+                 from source/xmemory.cpp:1:
+include/xheap.h: In instantiation of ‘void xheap<Size>::sanityCheck() [with long unsigned int Size = 1073741824ul]’:
+include/xheap.h:145:17:   required from ‘void xheap<Size>::begin(bool) [with long unsigned int Size = 1073741824ul]’
+include/xoneheap.h:48:5:   required from ‘void xoneheap<SourceHeap>::begin(bool) [with SourceHeap = xheap<1073741824ul>]’
+include/xmemory.h:141:25:   required from here
+include/xheap.h:168:70: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "%d : WTF with magic %ld!\n", getpid(), *_magic);
+                                                                      ^
+In file included from include/xmemory.h:46:0,
+                 from source/xmemory.cpp:1:
+include/warpheap.h: In instantiation of ‘size_t NewSourceHeap<SourceHeap>::getSize(void*) [with SourceHeap = SourceInternalHeap; size_t = unsigned int]’:
+include/heaplayers/segheap.h:94:33:   required from ‘size_t HL::SegHeap<NumBins, getSizeClass, getClassMaxSize, LittleHeap, BigHeap>::getSize(void*) [with int NumBins = 29; int (* getSizeClass)(size_t) = Kingsley::size2Class; size_t (* getClassMaxSize)(int) = Kingsley::class2Size; LittleHeap = HL::AdaptHeap<HL::SLList, NewSourceHeap<SourceInternalHeap> >; BigHeap = NewSourceHeap<HL::ZoneHeap<SourceInternalHeap, 104857600u> >; size_t = unsigned int]’
+include/heaplayers/segheap.h:334:51:   required from ‘void HL::StrictSegHeap<NumBins, getSizeClass, getClassMaxSize, LittleHeap, BigHeap>::free(void*) [with int NumBins = 29; int (* getSizeClass)(size_t) = Kingsley::size2Class; size_t (* getClassMaxSize)(int) = Kingsley::class2Size; LittleHeap = HL::AdaptHeap<HL::SLList, NewSourceHeap<SourceInternalHeap> >; BigHeap = NewSourceHeap<HL::ZoneHeap<SourceInternalHeap, 104857600u> >]’
+include/heaplayers/ansiwrapper.h:40:27:   required from ‘void HL::ANSIWrapper<SuperHeap>::free(void*) [with SuperHeap = HL::StrictSegHeap<29, Kingsley::size2Class, Kingsley::class2Size, HL::AdaptHeap<HL::SLList, NewSourceHeap<SourceInternalHeap> >, NewSourceHeap<HL::ZoneHeap<SourceInternalHeap, 104857600u> > >]’
+include/internalheap.h:128:16:   required from here
+include/warpheap.h:85:88: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 5 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "%d : getSize error, with ptr = %p. sz %ld \n", getpid(), ptr, sz);
+                                                                                        ^
+In file included from include/xglobals.h:28:0,
+                 from include/xmemory.h:42,
+                 from source/xmemory.cpp:1:
+include/xpersist.h: In instantiation of ‘xpersist<Type, NElts>::xpersist(void*, size_t) [with Type = char; long unsigned int NElts = 1073741824ul; size_t = unsigned int]’:
+include/xheap.h:53:11:   required from ‘xheap<Size>::xheap() [with long unsigned int Size = 1073741824ul]’
+include/xoneheap.h:122:47:   required from ‘SourceHeap* xoneheap<SourceHeap>::getHeap() [with SourceHeap = xheap<1073741824ul>]’
+include/xoneheap.h:45:13:   required from ‘void xoneheap<SourceHeap>::finalize() [with SourceHeap = xheap<1073741824ul>]’
+include/xmemory.h:91:21:   required from here
+include/xpersist.h:91:97: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 3 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         fprintf(stderr, "This persistent region (%ld) is too small (%ld).\n", size(), _startsize);
+                                                                                                 ^
+include/xpersist.h:91:97: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+include/xpersist.h:140:30: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         (void *) NULL, size());
+                              ^
+include/xpersist.h:164:114: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+         _startaddr, size(), PROT_READ | PROT_WRITE, MAP_SHARED | (_startaddr != NULL ? MAP_FIXED : 0), _backingFd);
+                                                                                                                  ^
+In file included from include/xmemory.h:46:0,
+                 from source/xmemory.cpp:1:
+include/warpheap.h: In instantiation of ‘size_t NewSourceHeap<SourceHeap>::getSize(void*) [with SourceHeap = xoneheap<xheap<1073741824ul> >; size_t = unsigned int]’:
+include/heaplayers/segheap.h:94:33:   required from ‘size_t HL::SegHeap<NumBins, getSizeClass, getClassMaxSize, LittleHeap, BigHeap>::getSize(void*) [with int NumBins = 29; int (* getSizeClass)(size_t) = Kingsley::size2Class; size_t (* getClassMaxSize)(int) = Kingsley::class2Size; LittleHeap = HL::AdaptHeap<HL::SLList, NewSourceHeap<xoneheap<xheap<1073741824ul> > > >; BigHeap = NewSourceHeap<HL::ZoneHeap<xoneheap<xheap<1073741824ul> >, 10485760u> >; size_t = unsigned int]’
+include/heaplayers/ansiwrapper.h:83:37:   required from ‘size_t HL::ANSIWrapper<SuperHeap>::getSize(void*) [with SuperHeap = HL::StrictSegHeap<29, Kingsley::size2Class, Kingsley::class2Size, HL::AdaptHeap<HL::SLList, NewSourceHeap<xoneheap<xheap<1073741824ul> > > >, NewSourceHeap<HL::ZoneHeap<xoneheap<xheap<1073741824ul> >, 10485760u> > >; size_t = unsigned int]’
+include/xadaptheap.h:70:28:   required from ‘size_t xadaptheap<Heap, Source, ChunkSize>::getSize(void*) [with Heap = PerThreadHeap; Source = xoneheap<xheap<1073741824ul> >; int ChunkSize = 10485760; size_t = unsigned int]’
+include/xmemory.h:125:30:   required from here
+include/warpheap.h:85:88: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 5 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "%d : getSize error, with ptr = %p. sz %ld \n", getpid(), ptr, sz);
+                                                                                        ^
+In file included from include/xmemory.h:49:0,
+                 from source/xmemory.cpp:1:
+include/xheap.h: In instantiation of ‘void* xheap<Size>::malloc(size_t) [with long unsigned int Size = 1073741824ul; size_t = unsigned int]’:
+include/xoneheap.h:110:32:   required from ‘void* xoneheap<SourceHeap>::malloc(size_t) [with SourceHeap = xheap<1073741824ul>; size_t = unsigned int]’
+include/heaplayers/zoneheap.h:92:60:   required from ‘void* HL::ZoneHeap<Super, ChunkSize>::slowMalloc(size_t) [with Super = xoneheap<xheap<1073741824ul> >; unsigned int ChunkSize = 10485760u; size_t = unsigned int]’
+include/heaplayers/zoneheap.h:71:28:   required from ‘void* HL::ZoneHeap<Super, ChunkSize>::zoneMalloc(size_t) [with Super = xoneheap<xheap<1073741824ul> >; unsigned int ChunkSize = 10485760u; size_t = unsigned int]’
+include/heaplayers/zoneheap.h:47:34:   required from ‘void* HL::ZoneHeap<Super, ChunkSize>::malloc(size_t) [with Super = xoneheap<xheap<1073741824ul> >; unsigned int ChunkSize = 10485760u; size_t = unsigned int]’
+include/warpheap.h:63:62:   required from ‘void* NewSourceHeap<SourceHeap>::malloc(size_t) [with SourceHeap = HL::ZoneHeap<xoneheap<xheap<1073741824ul> >, 10485760u>; size_t = unsigned int]’
+include/heaplayers/segheap.h:325:8:   required from ‘void* HL::StrictSegHeap<NumBins, getSizeClass, getClassMaxSize, LittleHeap, BigHeap>::malloc(size_t) [with int NumBins = 29; int (* getSizeClass)(size_t) = Kingsley::size2Class; size_t (* getClassMaxSize)(int) = Kingsley::class2Size; LittleHeap = HL::AdaptHeap<HL::SLList, NewSourceHeap<xoneheap<xheap<1073741824ul> > > >; BigHeap = NewSourceHeap<HL::ZoneHeap<xoneheap<xheap<1073741824ul> >, 10485760u> >; size_t = unsigned int]’
+include/heaplayers/ansiwrapper.h:34:39:   required from ‘void* HL::ANSIWrapper<SuperHeap>::malloc(size_t) [with SuperHeap = HL::StrictSegHeap<29, Kingsley::size2Class, Kingsley::class2Size, HL::AdaptHeap<HL::SLList, NewSourceHeap<xoneheap<xheap<1073741824ul> > > >, NewSourceHeap<HL::ZoneHeap<xoneheap<xheap<1073741824ul> >, 10485760u> > >; size_t = unsigned int]’
+include/warpheap.h:119:38:   required from ‘void* KingsleyStyleHeap<SourceHeap, chunky>::malloc(size_t) [with SourceHeap = xoneheap<xheap<1073741824ul> >; int chunky = 10485760; size_t = unsigned int]’
+include/warpheap.h:162:38:   required from ‘void* PPHeap<NumHeaps, TheHeapType>::malloc(int, size_t) [with int NumHeaps = 32; TheHeapType = KingsleyStyleHeap<xoneheap<xheap<1073741824ul> >, 10485760>; size_t = unsigned int]’
+include/xadaptheap.h:62:34:   required from ‘void* xadaptheap<Heap, Source, ChunkSize>::malloc(int, size_t) [with Heap = PerThreadHeap; Source = xoneheap<xheap<1073741824ul> >; int ChunkSize = 10485760; size_t = unsigned int]’
+include/xmemory.h:103:43:   required from here
+include/xheap.h:103:182: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 5 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "Something very bad, maybe OUTOFMEMORY or memory corruption,  has happened: _start = %x, _position = %p, _remaining = %ld.\n", *_start, *_position, *_remaining);
+                                                                                                                                                                                      ^
+include/xheap.h:109:178: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 3 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+       fprintf(stderr, "OUTOFMEMORY: remaining[%ld], sz[%ld] thread[%d], try to change PROTECTEDHEAP_SIZE in xdefine.h to a bigger value\n", *_remaining, sz, (int) pthread_self());
+                                                                                                                                                                                  ^
+include/xheap.h:109:178: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘size_t {aka unsigned int}’ [-Wformat=]
+make: *** [libdthread32.so] Error 1

@@ -6,7 +6,7 @@ DEPS = $(SRCS) $(INC_DIR)/xpersist.h $(INC_DIR)/xdefines.h $(INC_DIR)/xglobals.h
 
 INCLUDE_DIRS = -I$(INC_DIR) -I$(INC_DIR)/heaplayers -I$(INC_DIR)/heaplayers/util
 
-TARGETS = libdthread.so
+TARGETS = libdthread32.so
 
 all: $(TARGETS)
 
@@ -18,7 +18,11 @@ CXX = g++
 # Get some characteristics about running.
 # -DGET_CHARACTERISTICS
 
-CFLAGS32 = -m32 -msse2 -DX86_32BIT -O3 -DNDEBUG -shared -fPIC -DLAZY_COMMIT -DLOCK_OWNERSHIP -DDETERM_MEMORY_ALLOC -D'CUSTOM_PREFIX(x)=grace\#\#x'
+#CFLAGS32 = -nostartfiles -nostdlib -m32 -msse2 -DX86_32BIT -O3 -DNDEBUG -shared -fPIC -DLAZY_COMMIT -DLOCK_OWNERSHIP -DDETERM_MEMORY_ALLOC -D'CUSTOM_PREFIX(x)=grace\#\#x'
+
+CFLAGS32 = -m32 -msse2 -DX86_32BIT -O3 -DNDEBUG -shared -fPIC
+
+CFLAGS32_debug = -g -m32 -msse2 -DX86_32BIT -O3 -DNDEBUG -DDEBUG -shared -fPIC
 
 CFLAGS64 = -m64 -msse2 -O3 -DNDEBUG -shared -fPIC -DLAZY_COMMIT -DLOCK_OWNERSHIP -DDETERM_MEMORY_ALLOC -D'CUSTOM_PREFIX(x)=grace\#\#x'
 
@@ -29,6 +33,9 @@ libdthread32.so: $(SRCS) $(DEPS) Makefile
 
 libdthread.so: $(SRCS) $(DEPS) Makefile
 	$(CXX) $(CFLAGS64) $(INCLUDE_DIRS) $(SRCS) -o $@ $(LIBS)
+
+libdthread.debug: $(SRCS) $(DEPS) Makefile
+	$(CXX) $(CFLAGS32_debug) $(INCLUDE_DIRS) $(SRCS) -o $@ $(LIBS)
 
 
 clean:
